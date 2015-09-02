@@ -35,3 +35,26 @@
 
 1440548087 c:\users\pnc7janelasnote\documents\github\t1-prog-conc-bcc-a\trabalho1\interfaces.h
 
+1441223233 source:c:\users\pnc\documents\github\t1-prog-conc-bcc-a\trabalho1\interfaces.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"interfaces.h"
+
+1441220209 c:\users\pnc\documents\github\t1-prog-conc-bcc-a\trabalho1\interfaces.h
+
+1441222694 source:c:\users\pnc\documents\github\t1-prog-conc-bcc-a\trabalho1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"matEntrada.h"
+	"interfaces.h"
+
+1441222648 c:\users\pnc\documents\github\t1-prog-conc-bcc-a\trabalho1\matentrada.h
+
+1441223052 source:c:\users\pnc\documents\github\t1-prog-conc-bcc-a\trabalho1\matentrada.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"matEntrada.h"
+

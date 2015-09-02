@@ -35,9 +35,10 @@ int main (int argc, char* argv[]){
         fscanf(arqMat, "%ld", &auxLong);
         // Salva os valores na estrutura
         inicializarValsMatEntrada(m,auxInt,auxShort,auxDouble,auxLong,0);
-        // Aloca espaço para as matrizes A e B, agora que sabemos sua dimensão
+        // Aloca espaço para as matrizes A e B e diagonalAux, agora que sabemos sua dimensão
         alocarMatA(m);
         alocarMatB(m);
+        alocarDiagonalAux(m);
         // Insere os elementos na Matriz A
         for(i=0;i<getOrdem(m);i++){
             for(j=0;j<getOrdem(m);j++){
@@ -57,20 +58,15 @@ int main (int argc, char* argv[]){
     }
 
     x0 = (double*)malloc(getOrdem(m)*sizeof(double));
-    /*
+
     srand((unsigned int)time(NULL));
     for(i=0;i<getOrdem(m);i++){
         x0[i] = ((float)rand()/(float)(RAND_MAX))*MAX_DOUBLE;
     }
-*/
-    x0[0] = 0.7;
-    x0[1] = -1.6;
-    x0[2] = 0.6;
 
-    prepararMatriez(m);
+    prepararMatrizes(m);
     resultado = jacobiRichardson(m,x0);
-    imprimirResultado(resultado,getOrdem(m));
-    imprimirInfosMatEntrada(m);
+    imprimirResultado(m,resultado);
 
     // Libera a memória alocada pela estrutura
     destruirMatEntrada(m);

@@ -6,7 +6,7 @@
 char* getCaminhoArquivo(short opcao){
 
     // Caminhos até cada arquivo das matrizes
-    const char caminhoMat250[] = "matrizes/matriz3.txt";
+    const char caminhoMat250[] = "matrizes/matriz250.txt";
     const char caminhoMat500[] = "matrizes/matriz500.txt";
     const char caminhoMat1000[] = "matrizes/matriz1000.txt";
     const char caminhoMat1500[] = "matrizes/matriz1500.txt";
