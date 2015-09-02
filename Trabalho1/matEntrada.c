@@ -26,6 +26,10 @@ void alocarMatB(MAT_ENTRADA* m){
     m->matB = (double*)malloc(getOrdem(m)*sizeof(double));
 }
 
+void alocarDiagonalAux(MAT_ENTRADA* m){
+    m->diagonalAux = (double*)malloc(getOrdem(m)*sizeof(double));
+}
+
 // --- Funções de Inserção de Valores ---
 
 void inserirOrdem(MAT_ENTRADA* m, int ordem){
@@ -58,6 +62,10 @@ void inserirElemMatB(MAT_ENTRADA* m, double elem, int pos){
     m->matB[pos] = elem;
 }
 
+void inserirElemDiagonalAux(MAT_ENTRADA* m, double elem, int pos){
+     m->diagonalAux[pos] = elem;
+}
+
 // --- Funções de Recuperação de Valores
 int getOrdem(MAT_ENTRADA* m){
     return(m->ordemMat);
@@ -80,6 +88,9 @@ double getElemMatA(MAT_ENTRADA* m, int posX, int posY){
 double getElemMatB(MAT_ENTRADA* m, int pos){
     return(m->matB[pos]);
 }
+double getElemDiagonalAux(MAT_ENTRADA* m, int pos){
+    return(m->diagonalAux[pos]);
+}
 
 // --- Funções de Liberação de Memória
 void desalocarMatA(MAT_ENTRADA* m){
@@ -98,6 +109,12 @@ void desalocarMatA(MAT_ENTRADA* m){
 void desalocarMatB(MAT_ENTRADA* m){
     if(m->matB != NULL){
         free(m->matB);
+    }
+}
+
+void desalocarDiagonalAux(MAT_ENTRADA* m){
+    if(m->diagonalAux != NULL){
+        free(m->diagonalAux);
     }
 }
 
@@ -144,45 +161,43 @@ void imprimirInfosMatEntrada(MAT_ENTRADA* m){
     printf("Numero real de iteracoes: %ld\n", getRealIt(m));
 }
 
-void imprimirResultado(double *res, int tam){
+void imprimirResultado(MAT_ENTRADA* m, double *res){
 
-    int i;
+    int i = 0;
+    double aux = 0;
 
-    for(i=0;i<tam;i++){
-        printf("%.4lf\n", res[i]);
+    for(i=0;i<getOrdem(m);i++){
+        aux += -(getElemMatA(m,getFilaAval(m),i)*getElemDiagonalAux(m,getFilaAval(m)))*(res[i]);
     }
 
+    printf("Numero de iteracoes: %ld\n", getRealIt(m));
+    printf("RowTest: %hd => [%lf] =? %lf\n", getFilaAval(m),aux,getElemMatB(m,getFilaAval(m))*getElemDiagonalAux(m,getFilaAval(m)));
 }
 
 // --- Funções Relativas ao Método de Jacobi-Richardson
 
-void prepararMatriez(MAT_ENTRADA* m){
+void prepararMatrizes(MAT_ENTRADA* m){
 
     int i, j;
-    double *diagonal = (double*)malloc(getOrdem(m)*sizeof(double));
 
     // Salvamos os valores da diagonal da matriz A
     // em um vetor auxiliar
     for(i=0;i<getOrdem(m);i++){
-        diagonal[i] = getElemMatA(m,i,i);
+        inserirElemDiagonalAux(m,getElemMatA(m,i,i),i);
     }
 
     // Dividimos cada linha da matriz A pelo elemento da diagonal
     // e invertemos o sinal
     for(i=0;i<getOrdem(m);i++){
         for(j=0;j<getOrdem(m);j++){
-            inserirElemMatA(m,-(getElemMatA(m,i,j)/diagonal[i]),i,j);
+            inserirElemMatA(m,-(getElemMatA(m,i,j)/getElemDiagonalAux(m,i)),i,j);
         }
     }
     // Dividimos cada elemento[i] da matriz B (que é um vetor)
     // pelo respectivo elemento[i] da diagonal de A
     for(i=0;i<getOrdem(m);i++){
-        inserirElemMatB(m,getElemMatB(m,i)/diagonal[i], i);
+        inserirElemMatB(m,getElemMatB(m,i)/getElemDiagonalAux(m,i), i);
     }
-
-    // Agora que a diagonal auxiliar não é mais necessária
-    // liberamos a memória ocupada
-    free(diagonal);
 }
 
 double* jacobiRichardson(MAT_ENTRADA* m, double *x0){
