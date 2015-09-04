@@ -1,0 +1,132 @@
+Numero de iteracoes: 2324
+RowTest: 4 => [85.038676] =? 85.000000
+
+Numero de iteracoes: 2334
+RowTest: 4 => [85.038609] =? 85.000000
+
+Numero de iteracoes: 2345
+RowTest: 4 => [84.961336] =? 85.000000
+
+Numero de iteracoes: 2328
+RowTest: 4 => [85.038630] =? 85.000000
+
+Numero de iteracoes: 2317
+RowTest: 4 => [84.961404] =? 85.000000
+
+Numero de iteracoes: 2330
+RowTest: 4 => [85.038674] =? 85.000000
+
+Numero de iteracoes: 2335
+RowTest: 4 => [84.961335] =? 85.000000
+
+Numero de iteracoes: 2346
+RowTest: 4 => [85.038711] =? 85.000000
+
+Numero de iteracoes: 2329
+RowTest: 4 => [84.961309] =? 85.000000
+
+Numero de iteracoes: 2336
+RowTest: 4 => [85.038718] =? 85.000000
+
+Media do numero de iteracoes: 2332
+Media dos RowTest: 4 => [85.007740] =? 85.000000
+
+Numero de iteracoes: 2324
+RowTest: 4 => [85.038667] =? 85.000000
+
+Numero de iteracoes: 2325
+RowTest: 4 => [84.961415] =? 85.000000
+
+Numero de iteracoes: 2323
+RowTest: 4 => [84.961393] =? 85.000000
+
+Numero de iteracoes: 2328
+RowTest: 4 => [85.038621] =? 85.000000
+
+Numero de iteracoes: 2331
+RowTest: 4 => [84.961420] =? 85.000000
+
+Numero de iteracoes: 2331
+RowTest: 4 => [84.961350] =? 85.000000
+
+Numero de iteracoes: 2345
+RowTest: 4 => [84.961408] =? 85.000000
+
+Numero de iteracoes: 2339
+RowTest: 4 => [84.961416] =? 85.000000
+
+Numero de iteracoes: 2334
+RowTest: 4 => [85.038606] =? 85.000000
+
+Numero de iteracoes: 2341
+RowTest: 4 => [84.961387] =? 85.000000
+
+Media do numero de iteracoes: 2332
+Media dos RowTest: 4 => [84.984568] =? 85.000000
+
+Numero de iteracoes: 2325
+RowTest: 4 => [84.961389] =? 85.000000
+
+Numero de iteracoes: 2321
+RowTest: 4 => [84.961420] =? 85.000000
+
+Numero de iteracoes: 2348
+RowTest: 4 => [85.038609] =? 85.000000
+
+Numero de iteracoes: 2338
+RowTest: 4 => [85.038557] =? 85.000000
+
+Numero de iteracoes: 2329
+RowTest: 4 => [84.961366] =? 85.000000
+
+Numero de iteracoes: 2343
+RowTest: 4 => [84.961407] =? 85.000000
+
+Numero de iteracoes: 2338
+RowTest: 4 => [85.038627] =? 85.000000
+
+Numero de iteracoes: 2338
+RowTest: 4 => [85.038696] =? 85.000000
+
+Numero de iteracoes: 2341
+RowTest: 4 => [84.961362] =? 85.000000
+
+Numero de iteracoes: 2342
+RowTest: 4 => [85.038551] =? 85.000000
+
+Media do numero de iteracoes: 2336
+Media dos RowTest: 4 => [84.999999] =? 85.000000
+
+Numero de iteracoes: 2328
+RowTest: 4 => [85.038629] =? 85.000000
+
+Numero de iteracoes: 2307
+RowTest: 4 => [84.961366] =? 85.000000
+
+Numero de iteracoes: 2305
+RowTest: 4 => [84.961365] =? 85.000000
+
+Numero de iteracoes: 2353
+RowTest: 4 => [84.961337] =? 85.000000
+
+Numero de iteracoes: 2332
+RowTest: 4 => [85.038645] =? 85.000000
+
+Numero de iteracoes: 2339
+RowTest: 4 => [84.961340] =? 85.000000
+
+Numero de iteracoes: 2314
+RowTest: 4 => [85.038692] =? 85.000000
+
+Numero de iteracoes: 2315
+RowTest: 4 => [84.961387] =? 85.000000
+
+Numero de iteracoes: 2315
+RowTest: 4 => [84.961312] =? 85.000000
+
+Numero de iteracoes: 2336
+RowTest: 4 => [85.038719] =? 85.000000
+
+Media do numero de iteracoes: 2324
+Media dos RowTest: 4 => [84.992279] =? 85.000000
+

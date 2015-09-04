@@ -33,7 +33,6 @@ void inserirElemMatA(MAT_ENTRADA* m, double elem, int posX, int posY); // Insere
 void inserirElemMatB(MAT_ENTRADA* m, double elem, int pos);    // Insere um elemento da matriz B
 void inserirElemDiagonalAux(MAT_ENTRADA* m, double elem, int pos);    // Insere um elemento da diagonalAux
 
-
 // Funções para recuperar valores
 int getOrdem(MAT_ENTRADA* m);       // Retorna a ordem da matriz
 short getFilaAval(MAT_ENTRADA* m);  // Retorna a fila que será avaliada
@@ -54,7 +53,7 @@ void destruirMatEntrada(MAT_ENTRADA* m);   // Libera o espaço de memória alocado
 void imprimirMatA(MAT_ENTRADA* m);  // Imprime os elementos da Matriz A
 void imprimirMatB(MAT_ENTRADA* m);  // Imprime os elementos da Matriz B
 void imprimirInfosMatEntrada(MAT_ENTRADA* m);   // Imprime algumas infos. da Estrutura
-void imprimirResultado(MAT_ENTRADA* m, double* res);
+void imprimirResultado(MAT_ENTRADA* m, double* res, long mediaIt);
 
 // Funções especificas do Método de Jacobi-Richardson
 void prepararMatrizes(MAT_ENTRADA* m);
@@ -63,5 +62,11 @@ double calcErro(double *xk, double *xkMaisUm, int tam);
 double calcNormaVetor(double *vet, int tam);
 double* subtracaoVetores(double *vet1, double *vet2, int tam);
 
+// Funções de escrita em arquivo
+void salvarSaidasItermediarias(MAT_ENTRADA* m, double *res, short opEscolhida);
+void salvarSaidaFinal(MAT_ENTRADA* m, double *res, long mediaIt, short opEscolhida);
+
+// Funções auxiliares
+double calcDesvioPadrao(double* tExec, double mediaTExec, int numExec);
 
 #endif // MATENTRADA_H_INCLUDED

@@ -1,0 +1,33 @@
+Numero de iteracoes: 5030
+RowTest: 25 => [17.037489] =? 17.000000
+
+Numero de iteracoes: 5068
+RowTest: 25 => [17.037425] =? 17.000000
+
+Numero de iteracoes: 5059
+RowTest: 25 => [16.962515] =? 17.000000
+
+Numero de iteracoes: 5066
+RowTest: 25 => [17.037453] =? 17.000000
+
+Numero de iteracoes: 5074
+RowTest: 25 => [17.037494] =? 17.000000
+
+Numero de iteracoes: 5038
+RowTest: 25 => [17.037485] =? 17.000000
+
+Numero de iteracoes: 5056
+RowTest: 25 => [17.037460] =? 17.000000
+
+Numero de iteracoes: 5087
+RowTest: 25 => [16.962514] =? 17.000000
+
+Numero de iteracoes: 5058
+RowTest: 25 => [17.037506] =? 17.000000
+
+Numero de iteracoes: 5067
+RowTest: 25 => [16.962518] =? 17.000000
+
+Media do numero de iteracoes: 5060
+Media dos RowTest: 25 => [17.014986] =? 17.000000
+
