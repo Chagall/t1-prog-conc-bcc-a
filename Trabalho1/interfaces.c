@@ -49,7 +49,7 @@ char* getCaminhoArquivo(short opcao){
     return(caminho);
 }
 
-char* telaInicial(short opInicial){
+char* telaInicial(short opInicial, short* opEscolhida){
 
     short opcao = opInicial;
     char* caminho = NULL;
@@ -71,6 +71,7 @@ char* telaInicial(short opInicial){
         printf("\n");
     }
 
+    *opEscolhida = opcao;
     caminho = getCaminhoArquivo(opcao);
 
     return(caminho);

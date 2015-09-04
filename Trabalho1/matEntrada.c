@@ -161,7 +161,7 @@ void imprimirInfosMatEntrada(MAT_ENTRADA* m){
     printf("Numero real de iteracoes: %ld\n", getRealIt(m));
 }
 
-void imprimirResultado(MAT_ENTRADA* m, double *res){
+void imprimirResultado(MAT_ENTRADA* m, double *res, long mediaIt){
 
     int i = 0;
     double aux = 0;
@@ -170,7 +170,7 @@ void imprimirResultado(MAT_ENTRADA* m, double *res){
         aux += -(getElemMatA(m,getFilaAval(m),i)*getElemDiagonalAux(m,getFilaAval(m)))*(res[i]);
     }
 
-    printf("Numero de iteracoes: %ld\n", getRealIt(m));
+    printf("Numero de iteracoes: %ld\n", mediaIt);
     printf("RowTest: %hd => [%lf] =? %lf\n", getFilaAval(m),aux,getElemMatB(m,getFilaAval(m))*getElemDiagonalAux(m,getFilaAval(m)));
 }
 
@@ -208,9 +208,9 @@ double* jacobiRichardson(MAT_ENTRADA* m, double *x0){
     double *xk = (double*)malloc(getOrdem(m)*sizeof(double));
 
     for(l=0;l<getMaxIt(m);l++){
-        if(l%1000 == 0 ){
-            printf("Iniciando a iteracao %ld.\n", l);
-        }
+        //if(l%1000 == 0 ){
+        //    printf("Iniciando a iteracao %ld.\n", l);
+        //}
         // Inicializa os valores de xk como "0"
         for(i=0;i<getOrdem(m);i++){
             xk[i] = 0;
@@ -294,3 +294,131 @@ double* subtracaoVetores(double *vet1, double *vet2, int tam){
     return(resultado);
 }
 
+// --- Funções de escrita em arquivo
+
+void salvarSaidasItermediarias(MAT_ENTRADA* m, double *res, short opEscolhida){
+
+	int i = 0;
+    double aux = 0;
+	FILE* f = NULL;
+
+	// Caminhos até cada arquivo de saida
+    const char caminhoRes250[] = "resultados/resultadoMatriz250.txt";
+    const char caminhoRes500[] = "resultados/resultadoMatriz500.txt";
+    const char caminhoRes1000[] = "resultados/resultadoMatriz1000.txt";
+    const char caminhoRes1500[] = "resultados/resultadoMatriz1500.txt";
+    const char caminhoRes2000[] = "resultados/resultadoMatriz2000.txt";
+    const char caminhoRes3000[] = "resultados/resultadoMatriz3000.txt";
+    const char caminhoRes4000[] = "resultados/resultadoMatriz4000.txt";
+
+	switch(opEscolhida){
+        case 1:
+			f = fopen(caminhoRes250,"a+");
+            break;
+        case 2:
+            f = fopen(caminhoRes500,"a+");
+            break;
+        case 3:
+            f = fopen(caminhoRes1000,"a+");
+            break;
+        case 4:
+            f = fopen(caminhoRes1500,"a+");
+            break;
+        case 5:
+            f = fopen(caminhoRes2000,"a+");
+            break;
+        case 6:
+            f = fopen(caminhoRes3000,"a+");
+            break;
+        case 7:
+            f = fopen(caminhoRes4000,"a+");
+            break;
+    }
+
+	if(f == NULL){
+		printf("Erro ao abrir arquivo de saidas intermediarias.");
+	}
+	else{
+		for(i=0;i<getOrdem(m);i++){
+			aux += -(getElemMatA(m,getFilaAval(m),i)*getElemDiagonalAux(m,getFilaAval(m)))*(res[i]);
+		}
+
+		fprintf(f,"Numero de iteracoes: %ld\n", getRealIt(m));
+		fprintf(f,"RowTest: %hd => [%lf] =? %lf\n\n", getFilaAval(m),aux,getElemMatB(m,getFilaAval(m))*getElemDiagonalAux(m,getFilaAval(m)));
+
+		fclose(f);
+	}
+
+}
+
+void salvarSaidaFinal(MAT_ENTRADA* m, double *res, long mediaIt, short opEscolhida){
+
+	int i = 0;
+    double aux = 0;
+	FILE* f = NULL;
+
+	// Caminhos até cada arquivo de saida
+    const char caminhoRes250[] = "resultados/resultadoMatriz250.txt";
+    const char caminhoRes500[] = "resultados/resultadoMatriz500.txt";
+    const char caminhoRes1000[] = "resultados/resultadoMatriz1000.txt";
+    const char caminhoRes1500[] = "resultados/resultadoMatriz1500.txt";
+    const char caminhoRes2000[] = "resultados/resultadoMatriz2000.txt";
+    const char caminhoRes3000[] = "resultados/resultadoMatriz3000.txt";
+    const char caminhoRes4000[] = "resultados/resultadoMatriz4000.txt";
+
+	switch(opEscolhida){
+        case 1:
+			f = fopen(caminhoRes250,"a+");
+            break;
+        case 2:
+            f = fopen(caminhoRes500,"a+");
+            break;
+        case 3:
+            f = fopen(caminhoRes1000,"a+");
+            break;
+        case 4:
+            f = fopen(caminhoRes1500,"a+");
+            break;
+        case 5:
+            f = fopen(caminhoRes2000,"a+");
+            break;
+        case 6:
+            f = fopen(caminhoRes3000,"a+");
+            break;
+        case 7:
+           f = fopen(caminhoRes4000,"a+");
+            break;
+    }
+
+	if(f == NULL){
+		printf("Erro ao abrir arquivo de saidas intermediarias.");
+	}
+	else{
+		for(i=0;i<getOrdem(m);i++){
+			aux += -(getElemMatA(m,getFilaAval(m),i)*getElemDiagonalAux(m,getFilaAval(m)))*(res[i]);
+		}
+
+		fprintf(f,"Media do numero de iteracoes: %ld\n", mediaIt);
+		fprintf(f,"Media dos RowTest: %hd => [%lf] =? %lf\n\n", getFilaAval(m),aux,getElemMatB(m,getFilaAval(m))*getElemDiagonalAux(m,getFilaAval(m)));
+
+		fclose(f);
+	}
+
+}
+
+// --- Funções auxiliares
+
+double calcDesvioPadrao(double* tExec, double mediaTExec, int numExec){
+
+    int i;
+    double desvioPadrao = 0;
+
+    for(i=0;i<numExec;i++){
+        desvioPadrao += (tExec[i]-mediaTExec)*(tExec[i]-mediaTExec);
+    }
+
+    desvioPadrao = desvioPadrao/(numExec-1);
+    desvioPadrao = sqrt(desvioPadrao);
+
+    return(desvioPadrao);
+}
